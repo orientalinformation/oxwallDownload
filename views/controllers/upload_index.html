@@ -1,0 +1,105 @@
+{form name="form_upload" }
+<div class="ow_supernarrow ow_right">
+{submit name="upload" class="ow_ic_save"}
+</div>
+<div class="clearfix"></div>
+<br>
+<div class="ow_wide ow_left">
+	<table class="ow_table_1 ow_form ">
+		<tr class="ow_alt1">
+			<td class="ow_value">{label name="upname" }</td>
+			<td class="ow_value" {if $check } colspan="2" {/if}>{input name="upname" }</td>
+		</tr>
+		<tr class="ow_alt1">
+			<td class="ow_value">{label name="upslug" }</td>
+			<td class="ow_value" {if $check } colspan="2" {/if}>{input name="upslug" }</td>
+		</tr>
+		<tr class="ow_alt1">
+			<td class="ow_value">{label name="updescription" }</td>
+			<td class="ow_value" {if $check } colspan="2" {/if}>{input name="updescription" }</td>
+		</tr>
+		<tr class="ow_alt1">
+			<td class="ow_value">{label name="uplicense" }</td>
+			<td class="ow_value" {if $check } colspan="2" {/if}>{input name="uplicense" }</td>
+		</tr>
+	</table>
+</div>
+<div class="ow_narrow ow_right">
+	<table class="ow_table_1 ow_form">
+		<tbody>
+			<tr class="ow_alt2 ow_tr_first">
+				<td class="ow_value" style="width:1%;text-align: center;">
+					<p>Select file !!!</p>
+				</td>
+				<td style="width:1%;text-align: center;">
+					<input style="display:none" id="fileupload" name="files[]" type="file">
+					<span class="ow_button">
+						<span class="ow_positive">
+							<input value="Browse" id="file_btn_browse" name="browse" class="ow_ic_folder" type="button">
+						</span>
+					</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<table id="Listfile" >
+		<thead>
+			<tr>
+				<th></th>
+				<th>File</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody >
+			
+		</tbody>
+	</table>
+	{$cmpCategory}
+
+	{block_decorator name='box' addClass='ow_stdmargin' langLabel = 'spdownload+img_icon' iconClass='ow_ic_star'}
+		<table class="ow_forum">
+			<tr>
+				<td align="center">
+					<input style="display:none" id="iconUpload" accept="image/*" name="icon" type="file">
+					<label class="clickImg" for="iconUpload" ><img id="imgIcon" src="{$pathImgNone}" /></label>
+				</td>
+			</tr>
+		</table>
+
+		
+	{/block_decorator}
+</div>
+<div class="clearfix"></div>
+<br>
+{block_decorator name='box' addClass='ow_stdmargin' langLabel = 'spdownload+img_thumb' iconClass='ow_ic_star'}
+	<input style="display:none" id="thumbsUpload" name="thumbs[]" multiple="" type="file">
+	<table>
+		<tr>
+			<td>
+				<div class="ow_left">
+					<label for="thumbsUpload">
+							<div id="file_btn_thumb" class="upload ow_left">
+								<div class="ow_add_item"></div>
+							</div>
+					</label>
+				</div>
+			</td>
+			<td>
+				<div id="listthumb" class="ow_right">
+					
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+	
+<div class="clearfix"></div>
+<br>
+{/block_decorator}
+{/form}
+
+<script type="text/javascript">
+	$(document).on('click', '#file_btn_browse', function(){
+		$('#fileupload').click();
+	});
+</script>

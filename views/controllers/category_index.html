@@ -1,0 +1,31 @@
+
+<div class="ow_supernarrow ow_right">
+	{decorator name="button" class="btn_cate_add ow_ic_add" langLabel="spdownload+add" onclick="window.location.href = '`$urlAddCategory`'" }
+</div>
+<div class="clearfix"></div>
+<hr>
+<div class="ow_wide ow_automargin ow_center">
+	<table class="ow_table_1 ow_form">
+		<tr>
+			<th width="5%">STT</th>
+			<th width="40%">Name</th>
+			<th width="40%">Parent</th>
+			<th></th>
+		</tr>
+		{capture}
+			{$i = 1}
+		{/capture}
+		{foreach from=$categories item='category' name='category'}
+		<tr>
+			<td>{$i}</td>
+			<td>{$category->name}</td>
+			<td>{$category->parent}</td>
+			<td>{decorator name="button" class="ow_ic_edit" langLabel="spdownload+edit" onclick="window.location.href = '`$category->edit`'" }
+			</td>
+		</tr>
+		{capture}
+			{$i++}
+		{/capture}
+		{/foreach}
+	</table>
+</div>
